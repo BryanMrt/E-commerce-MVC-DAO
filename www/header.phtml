@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
+    <head>
+
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="keywords" content="HTML5 Template" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Smile | Responsive Bootstrap Ecommerce Template</title>
+
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="www/favicon.ico">
+
+        <!-- Google Webfont -->
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,100,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,100,300,300italic,700,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="www/css/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="www/css/bootstrap.min.css">
+        <link rel="stylesheet" href="www/js/vendors/isotope/isotope.css">
+        <link rel="stylesheet" href="www/js/vendors/slick/slick.css">
+        <link rel="stylesheet" href="www/js/vendors/rs-plugin/css/settings.css">
+        <link rel="stylesheet" href="www/js/vendors/select/jquery.selectBoxIt.css">
+        <link rel="stylesheet" href="www/css/subscribe-better.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css">     
+        <link rel="stylesheet" href="www/plugin/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="www/plugin/owl-carousel/owl.theme.css">
+        <link rel="stylesheet" href="www/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                <![endif]-->
+
+    </head>
+    <body>
+
+        <!-- PRELOADER -->
+        <div id="loader"></div>
+
+        <div class="body">
+            <!-- TOPBAR -->
+            <div class="top_bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="tb_left pull-left">
+                                    <p>Welcome to our online store !</p>
+                                </div>
+                                <div class="tb_center pull-left">
+                                    <ul>
+                                        <li><i class="fa fa-phone"></i> Hotline: <a href="#">(+800) 2307 2509 8988</a></li>
+                                        <li><i class="fa fa-envelope-o"></i> <a href="#">online support@smile.com</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tb_right pull-right">
+                                    <ul>
+                                        
+                                        
+                                        <?php if(isset($_SESSION['login_nom'])){ ?>
+
+                                            <li>
+                                                <div class="tbr-info">
+                                                    <span>Bonjour, <?php echo $_SESSION['login_nom']; ?></span>
+                                                </div>
+                                            </li>
+                                             <li>
+                                                <div class="tbr-info">
+                                                    <a href="#"><span>Mon compte</span></a>
+                                                </div>
+                                            </li>
+                                            
+                                            <li>
+                                                <div class="tbr-info">
+                                                    <a href="index.php?action=deconnexion"><span>Déconnexion</span></a>
+                                                </div>
+                                            </li>
+                                            
+                                            
+                                            
+                                        
+                                        <?php }else{ ?>
+                                            
+                                            <li>
+                                                <div class="tbr-info">
+                                                    <a href="index.php?action=connexion_inscription"><span>Connexion / Inscription</span></a>
+                                                </div>
+                                            </li>
+                                        
+                                        <?php } ?>
+                                        
+                                       
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEADER -->
+            <header>
+                <nav class="navbar navbar-default">
+                    <div class="container">
+                        <div class="row">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <!-- Logo -->
+                                <a class="navbar-brand" href="./index.php"><img src="www/images/basic/logo.png" class="img-responsive" alt=""/></a>
+                            </div>
+                            <!-- Cart & Search -->
+                            <div class="header-xtra pull-right">
+                                <div class="topcart">
+                                    <span><i class="fa fa-shopping-cart"></i></span>
+                                    <div class="cart-info">
+                                        <small>Vous avez <em class="highlight"><?php echo $panier->compterArticles()?> article(s)</em> dans votre panier</small>
+
+
+    <?php 
+
+        for($i = 0; $i < count($_SESSION['panier']['idProduit']); $i++)
+           {
+    ?>                                    
+                                        <div class="ci-item">
+                                            <img src="<?php echo $_SESSION['panier']['ImageProduit'][$i]; ?>" width="80" alt=""/>
+                                            <div class="ci-item-info">
+                                                <h5><a href="./single-product.html"><?php echo $_SESSION['panier']['libelleProduit'][$i]; ?></a></h5>
+                                                <p><?php echo $_SESSION['panier']['qteProduit'][$i]; ?> x <?php echo $_SESSION['panier']['prixProduit'][$i]; ?> € </p>
+                                                <div class="ci-edit">
+                                                    <a href="index.php?action=panier" class="edit fa fa-edit"></a>
+                                                    <a href="index.php?action=panier&del=<?php echo $_SESSION['panier']['idProduit'][$i] ?>" class="edit fa fa-trash"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+    <?php } ?>
+
+                                        <div class="ci-total">Subtotal: <span class=""> <strong> <?php echo $panier->MontantGlobal();?></span>€</strong></div>
+                                        <div class="cart-btn">
+                                            <a href="index.php?action=panier">Mon Panier</a>
+                                            <a href="index.php?action=panier">Verifier</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="topsearch">
+                                    <span>
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                    <form class="searchtop" method="GET" action="index.php">
+                                       <!--  // pas moyen de faire (form action="index.php?action ") dans un formulaire alors  j envoie un input hidden pour recuperer l action recherche  pour que index.php identifier la page de destination -->
+
+                                        <input type="hidden" name="action" value="recherche">
+                                        <input type="text" placeholder="Search entire store here." name="motcle">
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Navmenu -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="./index.php"  role="button" >Accueil</a>
+                                    </li>
+                                    <?php foreach($Cat as $cat) { ?>
+                                    <li>
+                                        <?php // on a envoyer le titre et id de chaque categorie a la page categorie.php avec la methode GET( pour envoyer des informations dans un lien avec le GET, j utilise ? (sa remplace 'method="GET"' dans la balise form))?>
+                                        <a href="index.php?action=categorie&titre=<?php echo $cat['titre']; ?>&id=<?php echo $cat['id']; ?>"  role="button" ><?php echo $cat['titre']; ?></a>
+                                    </li>
+                                   <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>

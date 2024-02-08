@@ -1,0 +1,62 @@
+
+
+        <!-- BLOCKS WRAP -->
+        <div class="block-main container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="block-content">
+                        <img src="images/blocks/1.jpg" class="img-responsive" alt=""/>
+                        <div class="bs-text-down text-center hvr-outline-out">
+                            Ordinateur<span>Nouvelle/Categorie 2015</span>				
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="block-content">
+                        <img src="images/blocks/2.jpg" class="img-responsive" alt=""/>
+                        <div class="bs-text-center text-center">
+                            Accessoires<span> New Collection</span>				
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="block-content">
+                        <img src="images/blocks/3.jpg" class="img-responsive" alt=""/>
+                        <div class="bs-text-down text-center">
+                            SmartPhone<span>Nouvelle Generation</span>				
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!--  produits -->
+        <div class="featured-products">
+            <div class="container">
+                <div class="row">
+                    <h5 class="heading"><span>Produits</span></h5>
+                   
+                    <div id="isotope" class="isotope">
+                        <?php foreach($produits as $prod){ ?>
+                        <div class="isotope-item">
+                            <div class="product-item">
+                                <div class="item-thumb">
+                                    <img src="<?php echo $prod['image'];?>" class="img-responsive" alt=""/>
+                                </div>
+                                <div class="product-info">
+                                    <h4 class="product-title"><a href="index.php?action=produit&id=<?php echo $prod['id'];?>"><?php echo $prod['titre']; ?></a></h4>
+                                    <span class="product-price"><?php echo $prod['prix'];?>  € </span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <?php } ?>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+       
+           

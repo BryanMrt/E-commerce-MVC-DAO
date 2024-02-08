@@ -1,0 +1,110 @@
+
+
+            <!-- BREADCRUMBS -->
+            <div class="bcrumbs">
+                <div class="container">
+                    <ul>
+                        <li><a href="#">Acceuil</a></li>
+                        <li><a href="#">Produit</a></li>
+                        <li>Fiche Produit</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="space10"></div>
+
+            <!-- MAIN CONTENT -->
+            <div class="shop-single">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-6">     
+                                     <div class="owl-carousel prod-slider sync1">
+                                        <div class="item"> 
+                                            <img src="<?php echo $article['image']?>" alt="">
+                                            <a href="<?php echo $article['image']?>" rel="prettyPhoto[gallery2]" title="Product" class="caption-link"><i class="fa fa-arrows-alt"></i></a>
+                                        </div>
+
+<?php foreach($images as $img){ ?>
+                                        <div class="item"> 
+                                            <img src="<?php echo $img['url']?>" alt=""> 
+                                            <a href="<?php echo $img['url']?>" rel="prettyPhoto[gallery2]" title="Product" class="caption-link"><i class="fa fa-arrows-alt"></i></a>
+                                        </div>
+                                       
+<?php } ?>
+
+                                        
+                                    </div>
+
+                                    <div  class="owl-carousel sync2">
+                                        <div class="item"> <img src="<?php echo $article['image']?>" alt=""> </div>
+                                        
+<?php foreach($images as $img){ ?>
+                                        <div class="item"> <img src="<?php echo $img['url']?>" alt=""> </div>
+                                       
+<?php } ?>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-7 col-sm-6">
+                                    <div class="product-single">
+                                        <div class="ps-header">
+                                            <h3><?php echo $article['titre']?></h3>
+                                           
+                                            <div class="ps-price"> <?php echo $article['prix']?> € </div>
+                                        </div>
+                                        <p>Description</p>
+                                        <div class="ps-stock">
+                                            Stock: <a href="#"><?php echo $article['stock']?></a>
+                                        </div>
+                                        <div class="sep"></div>
+                                        
+                                        <div class="space10"></div>
+                                        
+                                        <form method="POST">
+                                            <input type="number" name="qte" value=1>
+                                            <button name="add" type="submit" class="addtobag" >Ajouter au panier</button>
+                                    
+                                        </form>
+                                       </div>
+                                </div>
+                            </div>
+                            <div class="clearfix space40"></div>
+                            
+                            <div class="clearfix space40"></div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <h5 class="heading space40"><span>produits similaires</span></h5>
+                                    <div class="product-carousel3">
+
+                                        <?php foreach($produit as $prodd){ ?>
+                                        <div class="pc-wrap">
+                                            <div class="product-item">
+                                                <div class="item-thumb">
+                                                    <img src="<?php echo $prodd['image']?>" class="img-responsive" alt=""/>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h4 class="product-title"><a href="./single-product.html"><?php echo $prodd['titre']?></a></h4>
+                                                    <span class="product-price"><?php echo $prodd['prix']?>  € </span>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    <?php } ?>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix space20"></div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix space20"></div>
+
+            <!-- FOOTER -->
+          

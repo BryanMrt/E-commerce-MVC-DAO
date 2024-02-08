@@ -1,0 +1,128 @@
+
+    <!-- BREADCRUMBS -->
+    <div class="bcrumbs">
+        <div class="container">
+            <ul>
+                <li><a href="#">Acceuil</a></li>
+                <li>Mon Panier</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="space10"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="shop-single shopping-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+				 <form action="" method="POST">
+                    <table class="cart-table">
+                        <tr>
+                            <th>Image</th>
+                            <th>Titre</th>
+                            <th>Prix U</th>
+                            <th>Quantité</th>
+                            <th>Sous-total</th>
+                            <th>Options</th>
+                        </tr>
+						<?php 
+						for($i = 0; $i < count($_SESSION['panier']['idProduit']); $i++)
+						   {
+						 ?>
+                        <tr>
+                            <td><a href="index?action=panier&id=<?php echo $_SESSION['panier']['idProduit'][$i]; ?>"><img src="<?php echo $_SESSION['panier']['ImageProduit'][$i]; ?>" class="img-responsive" alt=""/></a></td>
+                            <td><?php echo $_SESSION['panier']['libelleProduit'][$i]; ?></td>
+                            <td><?php echo $_SESSION['panier']['prixProduit'][$i]; ?></td>
+                           
+                            <td> 
+								<input type="number"  name="qte_<?= $i ?>" value="<?php echo $_SESSION['panier']['qteProduit'][$i]; ?>" min="1" max="10">
+                                
+								<input type="hidden" name="id_<?= $i ?>" value="<?= $_SESSION['panier']['idProduit'][$i]; ?>">
+							</td>
+                            <td><?php echo $_SESSION['panier']['qteProduit'][$i]*$_SESSION['panier']['prixProduit'][$i]; ?></td>
+                            
+                                
+                                <td><a href="index.php?action=panier&del=<?php echo $_SESSION['panier']['idProduit'][$i] ?>"><i class="fa fa-trash-o"></i></a></td>
+                           
+                        </tr>
+						<?php } ?>                               
+                        
+                    </table>
+                    <div class="table-btn">
+                        <a href="index.php" class="btn-black pull-left">CONTINUER VOS ACHATS</a>
+                            <button name="update" type="submit" class="btn-black pull-right">MODIFIER VOS ACHATS </button>
+                        </form>
+                       
+                         
+                    </div>
+                    <div class="clearfix space20"></div>
+                    <div class="row shipping-info-wrap">
+                       
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="totals">
+                                <table id="shopping-cart-totals-table">
+                                    <tfoot>
+                                        <tr>
+                                            <td style="" class="a-right" colspan="1">
+                                                <strong>Grand Total</strong>
+                                            </td>
+                                            <td style="" class="a-right">
+                                                <strong><span class="price"> <?php echo $panier->MontantGlobal();?></span>€</strong>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td style="" class="a-right" colspan="1">
+                                                Subtotal    
+                                            </td>
+                                            <td style="" class="a-right">
+                                                <span class="price"> <?php echo $panier->MontantGlobal();?></span> €   
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <ul class="checkout-types">
+                                    <li class="space10"><button type="button" class="btn-color">Passer au Paiement</button></li>
+                                    <li><a href="#">Checkout with Multiple Addresses</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space40"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <span class="heading-small">VOUS POUVEZ ÊTRE INTÉRESSÉ(S) PAR LE(S) ARTICLE(S) SUIVANT(S)</span>
+                            <div class="space30"></div>
+                            <div class="product-carousel3">
+                                <?php foreach($produits as $prod){ ?>
+                                <div class="pc-wrap">
+                                    <div class="product-item">
+                                        <div class="item-thumb">
+                                            <img src="<?php echo $prod['image']?>" class="img-responsive" alt=""/>
+                                            <div class="overlay-rmore fa fa-search quickview" data-toggle="modal" data-target="#myModal"></div>
+                                            <div class="product-overlay">
+                                                <a href="#" class="addcart fa fa-shopping-cart"></a>
+                                                <a href="#" class="compare fa fa-signal"></a>
+                                                <a href="#" class="likeitem fa fa-heart-o"></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 class="product-title"><a href="./single-product.html"><?php echo $prod['titre']?></a></h4>
+                                            <span class="product-price"><?php echo $prod['prix']?> <em>-  € </em></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                               <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix space20"></div>
+
+    <!-- FOOTER -->
