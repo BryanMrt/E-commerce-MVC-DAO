@@ -17,9 +17,9 @@ De plus, le modèle DAO (Data Access Object) a été utilisé pour isoler la log
 - Langage de programmation : PHP
 - Modèle de conception : MVC
 - Modèle DAO : Utilisation de classes DAO pour l'accès aux données.
-- Base de données : MySQL (ou toute autre base de données relationnelle)
+- Base de données : MySQL
 
   ## Fonctionnalités principales
-- **Gestion des utilisateurs** : Inscription, connexion, gestion du profil.
-- **Catalogue de produits** : Affichage des produits, recherche, filtres.
+- **Gestion des utilisateurs** : Inscription, connexion.
+- **Catalogue de produits** : Affichage des produits, recherche.
 - **Panier d'achats** : Ajout, modification (des quantités) et suppression de produits.
