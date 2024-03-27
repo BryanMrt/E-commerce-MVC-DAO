@@ -14,7 +14,7 @@ De plus, le modèle DAO (Data Access Object) a été utilisé pour isoler la log
 - Processus de commande
 
 ## Technologies utilisées
-- Langage de programmation : PHP
+- Langage de programmation : PHP 8.2.0
 - Modèle de conception : MVC
 - Modèle DAO : Utilisation de classes DAO pour l'accès aux données.
 - Base de données : MySQL
